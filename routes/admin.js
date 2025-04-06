@@ -1,12 +1,12 @@
+const path = require("path");
+
 const express = require("express");
 
 const router = express.Router();
 
 router.get("/add-product", (req, res, next) => {
   console.log("In the Middleware!");
-  res.send(
-    "<form action='/admin/add-product' method='post'><input name='title'><button>送出</button></form>"
-  );
+  res.sendFile(path.join(__dirname, "../", "views", "add-product.html"));
   //   next(); // 呼叫下一個middleware，讓請求繼續往下傳遞
 });
 
